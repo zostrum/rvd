@@ -100,7 +100,6 @@ class Movies extends Component {
         const movies = [...this.state.movies];
         const index = movies.indexOf(movie);
         movies[index].like = !movies[index].like;
-        console.log( movies);
 
         this.setState({ movies });
     };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 class Pagination extends Component {
     render() {
@@ -22,12 +23,13 @@ class Pagination extends Component {
                                 }
                                 style={{ cursor: "pointer" }}
                             >
-                                <a
+                                <Link
                                     className="page-link"
                                     onClick={() => onPageChange(page)}
+                                    to="#"
                                 >
                                     {page}
-                                </a>
+                                </Link>
                             </li>
                         );
                     })}
