@@ -20,13 +20,7 @@ class ListGroup extends Component {
             </div>
         );
     }
-
-    resetFilter = () => {};
 }
-
-// ListGroup.propTypes = {
-//     genres: PropTypes.array.isRequired,
-// };
 
 ListGroup.defaultProps = {
     textProperty: "name",

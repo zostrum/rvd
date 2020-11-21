@@ -7,6 +7,8 @@ import NotFound from "./components/common/notfound";
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./components/common/navbar";
+import LoginForm from "./components/loginForm";
+import RegisterForm from "./components/registerForm";
 
 class App extends Component {
     state = {};
@@ -15,6 +17,8 @@ class App extends Component {
             <main className="container">
                 <Navbar />
                 <Switch>
+                    <Route path="/login" component={LoginForm} />
+                    <Route path="/register" component={RegisterForm} />
                     <Route path="/movies/:id" component={MovieForm} />
                     <Route path="/movies" component={Movies} />
                     <Route path="/customers" component={Customers} />
