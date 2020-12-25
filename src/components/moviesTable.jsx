@@ -20,7 +20,7 @@ class MoviesTable extends Component {
                 <button
                     className="btn btn-danger"
                     onClick={() => {
-                        this.props.onDelete(movie._id);
+                        this.props.onDelete(movie);
                     }}>
                     Delete
                 </button>
@@ -30,7 +30,7 @@ class MoviesTable extends Component {
 
     render() {
         const { movies, sortColumn, onSort } = this.props;
-
+        
         return (
             <div>
                 <Table columns={this.columns} data={movies} sortColumn={sortColumn} onSort={onSort} />

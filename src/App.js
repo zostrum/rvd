@@ -9,12 +9,15 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./components/common/navbar";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends Component {
     state = {};
     render() {
         return (
             <main className="container">
+                <ToastContainer />
                 <Navbar />
                 <Switch>
                     <Route path="/login" component={LoginForm} />

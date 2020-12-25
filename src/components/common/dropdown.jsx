@@ -6,12 +6,12 @@ class DropDown extends Component {
         return (
             <div className="form-group">
                 <label htmlFor={name}>{label}</label>
-                <select className="form-control" name={name} id={name} onChange={onChange}>
+                <select className="form-control" name={name} id={name} onChange={onChange} value={currentItem}>
                     <option value="" hidden>
                         {defaultMessage}
                     </option>
                     {options.map((option) => (
-                        <option key={option._id} value={option._id} selected={currentItem === option._id ? "selected"  : ""}>
+                        <option key={option._id} value={option._id} >
                             {option.name}
                         </option>
                     ))}
