@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import authService from "../services/authService";
 import Like from "./common/like";
 import Table from "./common/table";
 
@@ -14,7 +15,16 @@ class MoviesTable extends Component {
             content: (movie) => <Like like={movie.like} onClick={() => this.props.onLike(movie)} />,
             label: "Like",
         },
-        {
+    ];
+    constructor() {
+        super();
+        if (authService.isAdmin()) {
+            this.addDeleteColumn();
+        }
+    }
+
+    addDeleteColumn() {
+        this.columns.push({
             key: "delete",
             content: (movie) => (
                 <button
@@ -25,12 +35,12 @@ class MoviesTable extends Component {
                     Delete
                 </button>
             ),
-        },
-    ];
+        });
+    }
 
     render() {
         const { movies, sortColumn, onSort } = this.props;
-        
+
         return (
             <div>
                 <Table columns={this.columns} data={movies} sortColumn={sortColumn} onSort={onSort} />

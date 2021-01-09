@@ -1,4 +1,4 @@
-import {backendUrl} from "../config/default.json";
+import { backendUrl } from "../config/default.json";
 import httpService from "./httpService";
 
 function url(id = "") {

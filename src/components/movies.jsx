@@ -63,9 +63,11 @@ class Movies extends Component {
 
         return { data: movies, totalCount: filtered.length };
     };
+
     renderTable = () => {
         const { pageSize, currentPage, searchQuery } = this.state;
         const { totalCount, data: movies } = this.getPagedData();
+        const { user } = this.props;
 
         return (
             <div className="container tableComponent">
@@ -78,9 +80,11 @@ class Movies extends Component {
                         />
                     </div>
                     <div className="col">
-                        <Link to="/movies/new" className="btn btn-primary">
-                            New Movie
-                        </Link>
+                        {user && (
+                            <Link to="/movies/new" className="btn btn-primary">
+                                New Movie
+                            </Link>
+                        )}
                         <SearchBox value={searchQuery} onChange={this.handleSearch} />
                         <h3>There are {totalCount} movies in DB</h3>
 
@@ -124,8 +128,8 @@ class Movies extends Component {
         try {
             await deleteMovie(movie._id);
         } catch (exception) {
-            if (exception.response && exception.response.status === 404 ) {
-                toast.error('This movie has already been deleted');
+            if (exception.response && exception.response.status === 404) {
+                toast.error("This movie has already been deleted");
             }
             this.setState({ movies: originalMovies });
         }

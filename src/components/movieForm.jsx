@@ -46,7 +46,6 @@ class MovieForm extends Form {
     }
 
     mapToViewModel = (movie) => {
-        console.log("mapping", movie)
         return {
             _id: movie._id,
             title: movie.title,
